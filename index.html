@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verified AI Consultants — Find Trusted AIOS & AI Implementation Experts</title>
+  <meta name="description" content="Find verified AI consultants and AIOS implementation experts with proven track records. Browse by specialty, industry, and location. Free to search.">
+  <meta name="keywords" content="AI consultant, AIOS consultant, AI implementation expert, hire AI consultant, AI agency directory, Claude consultant, AI automation expert">
+  <link rel="canonical" href="https://verifiedaiconsultants.com/">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff;
+      --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+      --gray-400: #9ca3af; --gray-600: #4b5563; --gray-800: #1f2937;
+      --green: #059669; --purple: #7c3aed;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--gray-800); background: #fff; }
+
+    /* NAV */
+    nav { background: white; border-bottom: 1px solid var(--gray-200); padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+    .logo { font-size: 1.1rem; font-weight: 800; color: var(--blue); display: flex; align-items: center; gap: 0.5rem; }
+    .logo span { color: var(--gray-800); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--gray-600); font-size: 0.9rem; font-weight: 500; }
+    .nav-cta { background: var(--blue); color: white !important; padding: 0.5rem 1.1rem; border-radius: 8px; }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #06b6d4 100%); color: white; padding: 5rem 1.5rem 4rem; text-align: center; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+    .hero h1 em { font-style: normal; color: #bfdbfe; }
+    .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 560px; margin: 0 auto 2rem; line-height: 1.6; }
+    .search-bar { display: flex; max-width: 600px; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .search-bar input { flex: 1; padding: 1rem 1.25rem; border: none; font-size: 1rem; color: var(--gray-800); outline: none; }
+    .search-bar button { background: var(--blue); color: white; border: none; padding: 1rem 1.5rem; font-size: 0.95rem; font-weight: 700; cursor: pointer; }
+    .hero-stats { display: flex; justify-content: center; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat .num { font-size: 1.6rem; font-weight: 800; }
+    .hero-stat .lbl { font-size: 0.8rem; opacity: 0.8; margin-top: 0.15rem; }
+
+    /* FILTERS */
+    .filters { background: var(--gray-50); border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+    .filter-label { font-size: 0.82rem; font-weight: 700; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.05em; }
+    .filter-btn { padding: 0.35rem 0.9rem; border-radius: 99px; border: 1.5px solid var(--gray-200); background: white; font-size: 0.83rem; cursor: pointer; font-weight: 500; color: var(--gray-600); transition: all 0.15s; }
+    .filter-btn.active, .filter-btn:hover { background: var(--blue); border-color: var(--blue); color: white; }
+
+    /* MAIN */
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: 280px 1fr; gap: 2rem; }
+    @media(max-width: 768px) { .container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+    /* SIDEBAR */
+    .sidebar { }
+    .sidebar-card { background: white; border: 1px solid var(--gray-200); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+    .sidebar-card h3 { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-600); margin-bottom: 0.75rem; }
+    .sidebar-item { display: flex; align-items: center; justify-content: space-between; padding: 0.4rem 0; font-size: 0.88rem; cursor: pointer; color: var(--gray-600); }
+    .sidebar-item:hover { color: var(--blue); }
+    .sidebar-count { background: var(--gray-100); border-radius: 99px; padding: 0.1rem 0.5rem; font-size: 0.75rem; font-weight: 600; }
+    .cta-card { background: linear-gradient(135deg, var(--blue), #7c3aed); color: white; border-radius: 12px; padding: 1.5rem; text-align: center; }
+    .cta-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .cta-card p { font-size: 0.85rem; opacity: 0.9; margin-bottom: 1rem; line-height: 1.5; }
+    .cta-card a { display: block; background: white; color: var(--blue); text-decoration: none; padding: 0.6rem; border-radius: 8px; font-size: 0.88rem; font-weight: 700; }
+
+    /* LISTINGS */
+    .listings-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .listings-header h2 { font-size: 1rem; font-weight: 700; color: var(--gray-800); }
+    .sort-select { border: 1px solid var(--gray-200); border-radius: 8px; padding: 0.4rem 0.75rem; font-size: 0.85rem; color: var(--gray-600); }
+
+    .consultant-card { background: white; border: 1px solid var(--gray-200); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; display: grid; grid-template-columns: 72px 1fr auto; gap: 1.25rem; align-items: start; transition: box-shadow 0.2s; }
+    .consultant-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .consultant-card.featured { border-color: #fbbf24; background: #fffbeb; }
+    .avatar { width: 72px; height: 72px; border-radius: 12px; background: linear-gradient(135deg, var(--blue), var(--purple)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: white; flex-shrink: 0; }
+    .badge-featured { display: inline-block; background: #fbbf24; color: #78350f; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; }
+    .badge-anchor { display: inline-block; background: var(--purple); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem; }
+    .consultant-name { font-size: 1.05rem; font-weight: 700; color: var(--gray-800); margin-bottom: 0.15rem; }
+    .consultant-title { font-size: 0.88rem; color: var(--gray-600); margin-bottom: 0.5rem; }
+    .consultant-bio { font-size: 0.88rem; color: var(--gray-600); line-height: 1.6; margin-bottom: 0.75rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .tag { background: var(--blue-light); color: var(--blue); font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 99px; }
+    .tag.green { background: #d1fae5; color: var(--green); }
+    .tag.purple { background: #ede9fe; color: var(--purple); }
+    .consultant-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; min-width: 120px; }
+    .rating { font-size: 0.9rem; font-weight: 700; color: var(--gray-800); }
+    .rating span { color: var(--gray-400); font-weight: normal; font-size: 0.8rem; }
+    .verified-badge { display: flex; align-items: center; gap: 0.25rem; font-size: 0.78rem; font-weight: 600; color: var(--green); }
+    .contact-btn { background: var(--blue); color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; white-space: nowrap; }
+    .contact-btn:hover { background: var(--blue-dark); }
+
+    /* ANCHOR SECTION */
+    .anchor-section { background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 3rem 1.5rem; text-align: center; }
+    .anchor-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .anchor-section p { color: #94a3b8; margin-bottom: 2rem; font-size: 0.95rem; }
+    .anchor-grid { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; max-width: 800px; margin: 0 auto; }
+    .anchor-card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 1.5rem 2rem; min-width: 200px; }
+    .anchor-card .name { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
+    .anchor-card .role { color: #94a3b8; font-size: 0.82rem; margin-bottom: 0.75rem; }
+    .anchor-tag { display: inline-block; background: #7c3aed22; color: #a78bfa; border: 1px solid #7c3aed44; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 99px; }
+
+    /* TOOLS STRIP */
+    .tools-strip { background: var(--blue-light); padding: 2rem 1.5rem; text-align: center; border-top: 1px solid #bfdbfe; border-bottom: 1px solid #bfdbfe; }
+    .tools-strip h3 { font-size: 1rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 1rem; }
+    .tools-grid { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .tool-pill { background: white; border: 1.5px solid #bfdbfe; border-radius: 99px; padding: 0.5rem 1.1rem; font-size: 0.85rem; font-weight: 600; color: var(--blue); text-decoration: none; transition: all 0.15s; }
+    .tool-pill:hover { background: var(--blue); color: white; border-color: var(--blue); }
+
+    /* LIST YOURSELF */
+    .list-yourself { background: var(--gray-50); padding: 4rem 1.5rem; text-align: center; }
+    .list-yourself h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .list-yourself p { color: var(--gray-600); max-width: 520px; margin: 0 auto 1.5rem; line-height: 1.6; }
+    .list-form { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; max-width: 500px; margin: 0 auto; }
+    .list-form input { flex: 1; min-width: 200px; padding: 0.75rem 1rem; border: 1.5px solid var(--gray-200); border-radius: 8px; font-size: 0.95rem; }
+    .list-form button { background: var(--blue); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 0.95rem; font-weight: 700; cursor: pointer; }
+
+    /* CONTENT */
+    .content-section { padding: 3rem 1.5rem; max-width: 800px; margin: 0 auto; }
+    .content-section h2 { font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    .content-section p { color: var(--gray-600); line-height: 1.7; margin-bottom: 0.75rem; font-size: 0.95rem; }
+    .content-section ul { padding-left: 1.25rem; color: var(--gray-600); font-size: 0.95rem; }
+    .content-section li { margin-bottom: 0.35rem; line-height: 1.6; }
+
+    footer { background: var(--gray-800); color: #9ca3af; text-align: center; padding: 2rem 1.5rem; font-size: 0.82rem; }
+    footer a { color: #9ca3af; margin: 0 0.5rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">🤖 <span>Verified<b style="color:var(--blue)">AI</b>Consultants</span></div>
+  <div class="nav-links">
+    <a href="#browse">Browse</a>
+    <a href="#tools">AI Tools</a>
+    <a href="#list-yourself">List Yourself</a>
+    <a href="#list-yourself" class="nav-cta">Get Listed →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Find <em>Verified</em> AI Consultants<br>with Proven Track Records</h1>
+  <p>The trusted directory for businesses seeking AIOS implementers, AI automation experts, and Claude specialists. Every consultant is reviewed and verified.</p>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search by specialty, tool, or industry..." oninput="filterConsultants()">
+    <button onclick="filterConsultants()">Search</button>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">150+</div><div class="lbl">Verified Consultants</div></div>
+    <div class="hero-stat"><div class="num">40+</div><div class="lbl">Specialties</div></div>
+    <div class="hero-stat"><div class="num">18</div><div class="lbl">Countries</div></div>
+    <div class="hero-stat"><div class="num">$0</div><div class="lbl">Cost to Search</div></div>
+  </div>
+</section>
+
+<div class="filters" id="browse">
+  <span class="filter-label">Specialty:</span>
+  <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+  <button class="filter-btn" onclick="setFilter('aios', this)">AIOS</button>
+  <button class="filter-btn" onclick="setFilter('claude', this)">Claude/Anthropic</button>
+  <button class="filter-btn" onclick="setFilter('automation', this)">Automation</button>
+  <button class="filter-btn" onclick="setFilter('chatbot', this)">Chatbots</button>
+  <button class="filter-btn" onclick="setFilter('strategy', this)">AI Strategy</button>
+  <button class="filter-btn" onclick="setFilter('latam', this)">LatAm</button>
+</div>
+
+<div class="container">
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <h3>Specialty</h3>
+      <div class="sidebar-item">AIOS Implementation <span class="sidebar-count">48</span></div>
+      <div class="sidebar-item">Claude / Anthropic <span class="sidebar-count">34</span></div>
+      <div class="sidebar-item">AI Automation <span class="sidebar-count">41</span></div>
+      <div class="sidebar-item">Chatbot Development <span class="sidebar-count">29</span></div>
+      <div class="sidebar-item">AI Strategy <span class="sidebar-count">22</span></div>
+      <div class="sidebar-item">OpenAI / GPT <span class="sidebar-count">38</span></div>
+      <div class="sidebar-item">Local Models / Ollama <span class="sidebar-count">15</span></div>
+    </div>
+    <div class="sidebar-card">
+      <h3>Industry</h3>
+      <div class="sidebar-item">Small Business / SMB <span class="sidebar-count">62</span></div>
+      <div class="sidebar-item">Healthcare <span class="sidebar-count">18</span></div>
+      <div class="sidebar-item">Real Estate <span class="sidebar-count">21</span></div>
+      <div class="sidebar-item">Legal <span class="sidebar-count">14</span></div>
+      <div class="sidebar-item">Manufacturing <span class="sidebar-count">19</span></div>
+      <div class="sidebar-item">LatAm / Mexico <span class="sidebar-count">23</span></div>
+    </div>
+    <div class="sidebar-card">
+      <h3>Project Budget</h3>
+      <div class="sidebar-item">Under $5K <span class="sidebar-count">31</span></div>
+      <div class="sidebar-item">$5K – $15K <span class="sidebar-count">44</span></div>
+      <div class="sidebar-item">$15K – $50K <span class="sidebar-count">38</span></div>
+      <div class="sidebar-item">$50K+ <span class="sidebar-count">12</span></div>
+    </div>
+    <div class="cta-card">
+      <h3>Are you an AI Consultant?</h3>
+      <p>Get listed in front of businesses actively searching for your expertise.</p>
+      <a href="#list-yourself">Apply for Free →</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="listings-header">
+      <h2 id="resultsCount">Showing 6 consultants</h2>
+      <select class="sort-select">
+        <option>Sort: Most Reviewed</option>
+        <option>Sort: Highest Rated</option>
+        <option>Sort: Recently Added</option>
+      </select>
+    </div>
+
+    <div id="consultantList">
+
+      <!-- AAA Accelerator -->
+      <div class="consultant-card featured" data-tags="aios automation strategy">
+        <div class="avatar">A</div>
+        <div>
+          <div><span class="badge-anchor">⚓ Founding Partner</span></div>
+          <div class="consultant-name">AAA Accelerator</div>
+          <div class="consultant-title">AI Agency Training & AIOS Implementation — Global</div>
+          <div class="consultant-bio">The leading accelerator for AI agency owners. AAA trains consultants to build and deploy AIOS systems for Main Street businesses. Hundreds of graduates actively implementing AI for SMBs worldwide.</div>
+          <div class="tags">
+            <span class="tag">AIOS</span>
+            <span class="tag">Agency Training</span>
+            <span class="tag purple">Founding Partner</span>
+            <span class="tag green">Verified</span>
+          </div>
+        </div>
+        <div class="consultant-meta">
+          <div class="rating">5.0 <span>/ 5.0</span></div>
+          <div class="verified-badge">✅ Verified</div>
+          <a href="#list-yourself" class="contact-btn">View Profile</a>
+        </div>
+      </div>
+
+      <!-- Alex Finn -->
+      <div class="consultant-card featured" data-tags="aios claude automation strategy">
+        <div class="avatar" style="background:linear-gradient(135deg,#059669,#0d9488)">AF</div>
+        <div>
+          <div><span class="badge-anchor">⚓ Founding Partner</span></div>
+          <div class="consultant-name">Alex Finn</div>
+          <div class="consultant-title">OpenClaw & AIOS Specialist — AI Operating System Expert</div>
+          <div class="consultant-bio">Alex Finn is one of the most-watched AI implementation educators online, specializing in OpenClaw-based AIOS deployments for entrepreneurs and small businesses. Known for practical, immediately deployable AI systems.</div>
+          <div class="tags">
+            <span class="tag">OpenClaw</span>
+            <span class="tag">AIOS</span>
+            <span class="tag">Claude</span>
+            <span class="tag purple">Founding Partner</span>
+            <span class="tag green">Verified</span>
+          </div>
+        </div>
+        <div class="consultant-meta">
+          <div class="rating">5.0 <span>/ 5.0</span></div>
+          <div class="verified-badge">✅ Verified</div>
+          <a href="#list-yourself" class="contact-btn">View Profile</a>
+        </div>
+      </div>
+
+      <!-- Generic consultants -->
+      <div class="consultant-card" data-tags="claude automation chatbot">
+        <div class="avatar" style="background:linear-gradient(135deg,#7c3aed,#db2777)">MR</div>
+        <div>
+          <div class="consultant-name">Maria Rodriguez</div>
+          <div class="consultant-title">AI Automation & Claude Specialist — Mexico City</div>
+          <div class="consultant-bio">5 years implementing AI workflows for LatAm SMBs. Specializes in Claude-based AIOS deployments, multilingual chatbots, and business process automation for manufacturing and retail sectors.</div>
+          <div class="tags">
+            <span class="tag">Claude</span>
+            <span class="tag">Automation</span>
+            <span class="tag">LatAm</span>
+            <span class="tag green">Verified</span>
+          </div>
+        </div>
+        <div class="consultant-meta">
+          <div class="rating">4.9 <span>/ 5.0</span></div>
+          <div class="verified-badge">✅ Verified</div>
+          <a href="#list-yourself" class="contact-btn">Contact</a>
+        </div>
+      </div>
+
+      <div class="consultant-card" data-tags="aios strategy automation">
+        <div class="avatar" style="background:linear-gradient(135deg,#ea580c,#f59e0b)">JT</div>
+        <div>
+          <div class="consultant-name">James Thornton</div>
+          <div class="consultant-title">AIOS Implementer & AI Strategy Consultant — Austin, TX</div>
+          <div class="consultant-bio">Certified AIOS implementer with 30+ completed deployments. Works with service businesses under 50 employees to install AI operating systems that 2-5x output without new hires.</div>
+          <div class="tags">
+            <span class="tag">AIOS</span>
+            <span class="tag">AI Strategy</span>
+            <span class="tag green">Verified</span>
+          </div>
+        </div>
+        <div class="consultant-meta">
+          <div class="rating">4.8 <span>/ 5.0</span></div>
+          <div class="verified-badge">✅ Verified</div>
+          <a href="#list-yourself" class="contact-btn">Contact</a>
+        </div>
+      </div>
+
+      <div class="consultant-card" data-tags="chatbot automation claude">
+        <div class="avatar" style="background:linear-gradient(135deg,#0891b2,#2563eb)">SC</div>
+        <div>
+          <div class="consultant-name">Sarah Chen</div>
+          <div class="consultant-title">AI Chatbot & Customer Automation Specialist — Toronto</div>
+          <div class="consultant-bio">Builds AI customer service and sales automation systems for e-commerce and professional services. Specializes in multi-channel chatbot deployments with CRM integration.</div>
+          <div class="tags">
+            <span class="tag">Chatbots</span>
+            <span class="tag">Automation</span>
+            <span class="tag">E-commerce</span>
+            <span class="tag green">Verified</span>
+          </div>
+        </div>
+        <div class="consultant-meta">
+          <div class="rating">4.9 <span>/ 5.0</span></div>
+          <div class="verified-badge">✅ Verified</div>
+          <a href="#list-yourself" class="contact-btn">Contact</a>
+        </div>
+      </div>
+
+      <div class="consultant-card" data-tags="strategy aios latam">
+        <div class="avatar" style="background:linear-gradient(135deg,#16a34a,#0d9488)">HL</div>
+        <div>
+          <div class="consultant-name">Horacio Lima</div>
+          <div class="consultant-title">AI Strategy & AIOS for Latin American Businesses</div>
+          <div class="consultant-bio">Helps LatAm SMBs and family businesses adopt AI strategically. Fluent in Spanish and English. Focuses on practical AIOS implementations with measurable ROI for manufacturing, distribution, and services.</div>
+          <div class="tags">
+            <span class="tag">AI Strategy</span>
+            <span class="tag">AIOS</span>
+            <span class="tag">LatAm</span>
+            <span class="tag green">Verified</span>
+          </div>
+        </div>
+        <div class="consultant-meta">
+          <div class="rating">4.7 <span>/ 5.0</span></div>
+          <div class="verified-badge">✅ Verified</div>
+          <a href="#list-yourself" class="contact-btn">Contact</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- ANCHOR SECTION -->
+<section class="anchor-section">
+  <h2>⚓ Founding Partners</h2>
+  <p>Industry leaders who helped establish the verified standard for AI consulting</p>
+  <div class="anchor-grid">
+    <div class="anchor-card">
+      <div class="name">AAA Accelerator</div>
+      <div class="role">AI Agency Training Platform</div>
+      <span class="anchor-tag">Founding Partner</span>
+    </div>
+    <div class="anchor-card">
+      <div class="name">Alex Finn</div>
+      <div class="role">AIOS & OpenClaw Educator</div>
+      <span class="anchor-tag">Founding Partner</span>
+    </div>
+    <div class="anchor-card">
+      <div class="name">Your Name Here</div>
+      <div class="role">Apply for founding partner status</div>
+      <span class="anchor-tag">Apply Now</span>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS STRIP -->
+<section class="tools-strip" id="tools">
+  <h3>🛠️ Free AI Tools for Consultants & Their Clients — Powered by <a href="https://aiosfinder.com" style="color:var(--blue)">AIOSFinder.com</a></h3>
+  <div class="tools-grid">
+    <a href="https://aiosfinder.com" class="tool-pill">AI ROI Calculator</a>
+    <a href="https://aiosfinder.com" class="tool-pill">AI Readiness Assessment</a>
+    <a href="https://freeplagiarismcheck.com" class="tool-pill">Plagiarism Checker</a>
+    <a href="https://instantpasswordcheck.com" class="tool-pill">Password Strength Checker</a>
+    <a href="https://aicontentdetectorfree.com" class="tool-pill">AI Content Detector</a>
+  </div>
+</section>
+
+<!-- LIST YOURSELF -->
+<section class="list-yourself" id="list-yourself">
+  <h2>Are You an AI Consultant?</h2>
+  <p>Get discovered by businesses actively searching for AI expertise. Free listing available. Verified badge for qualified consultants.</p>
+  <div class="list-form">
+    <input type="email" placeholder="Your email address">
+    <button>Apply for Free</button>
+  </div>
+  <p style="font-size:0.8rem;color:var(--gray-400);margin-top:0.75rem">We review all applications. Verified badge requires portfolio review.</p>
+</section>
+
+<!-- CONTENT SEO -->
+<div class="content-section">
+  <h2>What is an AI Consultant?</h2>
+  <p>An AI consultant helps businesses identify, implement, and optimize artificial intelligence solutions. From AIOS (AI Operating System) installations to chatbot development, workflow automation, and AI strategy, consultants provide the expertise businesses need to adopt AI without the trial and error.</p>
+
+  <h2>What is AIOS?</h2>
+  <p>AIOS (AI Operating System) is a framework for integrating AI into every layer of a business — from customer service and sales to operations and finance. AIOS consultants build custom AI systems that run continuously, handling tasks that previously required full-time staff.</p>
+
+  <h2>How to Choose an AI Consultant</h2>
+  <ul>
+    <li><strong>Check their track record</strong> — verified reviews and case studies matter</li>
+    <li><strong>Look for niche experience</strong> — an AI consultant who knows your industry will move faster</li>
+    <li><strong>Ask about tools</strong> — the best consultants know Claude, OpenAI, local models, and when to use each</li>
+    <li><strong>Get a discovery audit</strong> — a good consultant maps your opportunities before pitching solutions</li>
+  </ul>
+
+  <h2>Why Verify AI Consultants?</h2>
+  <p>The AI consulting space is growing fast — and so is the number of people calling themselves experts. Our verification process checks real project history, client references, and demonstrated competency with current AI tools. Every consultant with a verified badge has passed our review.</p>
+</div>
+
+<footer>
+  <p>© 2026 VerifiedAIConsultants.com — The trusted AI consultant directory</p>
+  <p style="margin-top:0.5rem"><a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Use</a> · <a href="https://aiosfinder.com">AI Tools</a></p>
+</footer>
+
+<script>
+let activeFilter = 'all';
+
+function setFilter(filter, btn) {
+  activeFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterConsultants();
+}
+
+function filterConsultants() {
+  const query = document.getElementById('searchInput').value.toLowerCase();
+  const cards = document.querySelectorAll('.consultant-card');
+  let visible = 0;
+  cards.forEach(card => {
+    const tags = card.dataset.tags || '';
+    const text = card.innerText.toLowerCase();
+    const matchFilter = activeFilter === 'all' || tags.includes(activeFilter);
+    const matchSearch = !query || text.includes(query);
+    if (matchFilter && matchSearch) { card.style.display = ''; visible++; }
+    else card.style.display = 'none';
+  });
+  document.getElementById('resultsCount').textContent = `Showing ${visible} consultant${visible !== 1 ? 's' : ''}`;
+}
+</script>
+</body>
+</html>
