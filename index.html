@@ -120,7 +120,11 @@
 
     footer { background: var(--gray-800); color: #9ca3af; text-align: center; padding: 2rem 1.5rem; font-size: 0.82rem; }
     footer a { color: #9ca3af; margin: 0 0.5rem; }
-  </style>
+  
+    .lang-switcher { display: flex; gap: 0.35rem; align-items: center; }
+    .lang-btn { background: none; border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; cursor: pointer; transition: all 0.15s; }
+    .lang-btn.active, .lang-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+</style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6286935824893984" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -131,13 +135,14 @@
     <a href="#browse">Browse</a>
     <a href="#tools">AI Tools</a>
     <a href="#list-yourself">List Yourself</a>
-    <a href="#list-yourself" class="nav-cta">Get Listed →</a>
+    <div class="lang-switcher"><button class="lang-btn active" onclick="setLang('en',this)">EN</button><button class="lang-btn" onclick="setLang('es',this)">ES</button><button class="lang-btn" onclick="setLang('fr',this)">FR</button><button class="lang-btn" onclick="setLang('pt',this)">PT</button></div>
+    <a href="#list-yourself" class="nav-cta" data-i18n="nav_cta">Get Listed →</a>
   </div>
 </nav>
 
 <section class="hero">
-  <h1>Find <em>Verified</em> AI Consultants<br>with Proven Track Records</h1>
-  <p>The trusted directory for businesses seeking AIOS implementers, AI automation experts, and Claude specialists. Every consultant is reviewed and verified.</p>
+  <h1><span data-i18n-html="hero_title">Find <em>Verified</em> AI Consultants<br>with Proven Track Records</span></h1>
+  <p><span data-i18n="hero_sub">The trusted directory for businesses seeking AIOS implementers, AI automation experts, and Claude specialists. Every consultant is reviewed and verified.</span></p>
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Search by specialty, tool, or industry..." oninput="filterConsultants()">
     <button onclick="filterConsultants()">Search</button>
@@ -649,6 +654,43 @@ function filterConsultants() {
     else card.style.display = 'none';
   });
   document.getElementById('resultsCount').textContent = `Showing ${visible} consultant${visible !== 1 ? 's' : ''}`;
+}
+</script>
+
+<script>
+let currentLang = 'en';
+let translations = {};
+
+fetch('/translations.json')
+  .then(r => r.json())
+  .then(data => {
+    translations = data;
+    applyLang('en');
+  })
+  .catch(() => console.log('Translations loaded inline'));
+
+function setLang(lang, btn) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  applyLang(lang);
+  document.documentElement.lang = lang;
+}
+
+function applyLang(lang) {
+  const t = translations[lang];
+  if(!t) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if(t[key]) el.textContent = t[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if(t[key]) el.innerHTML = t[key];
+  });
+  // Update placeholder
+  const searchInput = document.getElementById('searchInput');
+  if(searchInput && t.hero_search) searchInput.placeholder = t.hero_search;
 }
 </script>
 </body>
