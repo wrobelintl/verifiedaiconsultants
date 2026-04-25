@@ -124,6 +124,24 @@
     .lang-switcher { display: flex; gap: 0.35rem; align-items: center; }
     .lang-btn { background: none; border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; cursor: pointer; transition: all 0.15s; }
     .lang-btn.active, .lang-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+
+    /* CONTACT MODAL */
+    .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:1000; align-items:center; justify-content:center; padding:1rem; }
+    .modal-overlay.open { display:flex; }
+    .modal { background:white; border-radius:14px; padding:2rem; width:100%; max-width:520px; position:relative; }
+    .modal-close { position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.25rem; cursor:pointer; color:#64748b; }
+    .modal h3 { font-size:1.1rem; font-weight:800; color:#0f172a; margin-bottom:0.25rem; }
+    .modal .modal-sub { font-size:0.82rem; color:#64748b; margin-bottom:1.25rem; }
+    .modal label { display:block; font-size:0.82rem; font-weight:600; color:#374151; margin-bottom:0.3rem; margin-top:0.85rem; }
+    .modal input, .modal select, .modal textarea { width:100%; padding:0.65rem 0.85rem; border:1.5px solid #e2e8f0; border-radius:8px; font-size:0.9rem; font-family:inherit; outline:none; transition:border-color 0.15s; }
+    .modal input:focus, .modal select:focus, .modal textarea:focus { border-color:#2563eb; }
+    .modal textarea { min-height:90px; resize:vertical; }
+    .modal-submit { width:100%; margin-top:1.25rem; padding:0.8rem; background:#2563eb; color:white; border:none; border-radius:8px; font-size:0.95rem; font-weight:700; cursor:pointer; transition:background 0.15s; }
+    .modal-submit:hover { background:#1d4ed8; }
+    .modal-note { font-size:0.72rem; color:#94a3b8; margin-top:0.75rem; text-align:center; line-height:1.5; }
+    .modal-success { display:none; text-align:center; padding:1rem 0; }
+    .modal-success h4 { font-size:1rem; font-weight:800; color:#059669; margin-bottom:0.5rem; }
+    .modal-success p { font-size:0.85rem; color:#64748b; }
 </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6286935824893984" crossorigin="anonymous"></script>
 </head>
@@ -249,7 +267,7 @@
         <div class="consultant-meta">
           <div class="rating">5.0 <span>/ 5.0</span></div>
           <div class="verified-badge"> Verified</div>
-          <a href="#list-yourself" class="contact-btn">View Profile</a>
+          <a href="#" class="contact-btn" onclick="event.preventDefault();openContact(this.closest('.consultant-card').querySelector('.consultant-name').textContent)">Contact</a>
         </div>
       </div>
 
@@ -272,7 +290,7 @@
         <div class="consultant-meta">
           <div class="rating">5.0 <span>/ 5.0</span></div>
           <div class="verified-badge"> Verified</div>
-          <a href="#list-yourself" class="contact-btn">View Profile</a>
+          <a href="#" class="contact-btn" onclick="event.preventDefault();openContact(this.closest('.consultant-card').querySelector('.consultant-name').textContent)">Contact</a>
         </div>
       </div>
 
@@ -378,7 +396,7 @@
         <div class="consultant-meta">
           <div class="rating">4.9 <span>/ 5.0</span></div>
           <div class="verified-badge"> Verified</div>
-          <a href="#list-yourself" class="contact-btn">Contact</a>
+          <a href="#" class="contact-btn" onclick="event.preventDefault();openContact(this.closest('.consultant-card').querySelector('.consultant-name').textContent)">Contact</a>
         </div>
       </div>
 
@@ -397,7 +415,7 @@
         <div class="consultant-meta">
           <div class="rating">4.8 <span>/ 5.0</span></div>
           <div class="verified-badge"> Verified</div>
-          <a href="#list-yourself" class="contact-btn">Contact</a>
+          <a href="#" class="contact-btn" onclick="event.preventDefault();openContact(this.closest('.consultant-card').querySelector('.consultant-name').textContent)">Contact</a>
         </div>
       </div>
 
@@ -417,7 +435,7 @@
         <div class="consultant-meta">
           <div class="rating">4.9 <span>/ 5.0</span></div>
           <div class="verified-badge"> Verified</div>
-          <a href="#list-yourself" class="contact-btn">Contact</a>
+          <a href="#" class="contact-btn" onclick="event.preventDefault();openContact(this.closest('.consultant-card').querySelector('.consultant-name').textContent)">Contact</a>
         </div>
       </div>
 
@@ -437,7 +455,7 @@
         <div class="consultant-meta">
           <div class="rating">4.7 <span>/ 5.0</span></div>
           <div class="verified-badge"> Verified</div>
-          <a href="#list-yourself" class="contact-btn">Contact</a>
+          <a href="#" class="contact-btn" onclick="event.preventDefault();openContact(this.closest('.consultant-card').querySelector('.consultant-name').textContent)">Contact</a>
         </div>
       </div>
 
@@ -693,5 +711,94 @@ function applyLang(lang) {
   if(searchInput && t.hero_search) searchInput.placeholder = t.hero_search;
 }
 </script>
+
+<!-- CONTACT MODAL -->
+<div class="modal-overlay" id="contactModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">x</button>
+    <h3 id="modalConsultantName">Contact Consultant</h3>
+    <div class="modal-sub">Your message goes to Warren Business Group first. We'll connect you with the right consultant within 24 hours.</div>
+    
+    <div id="modalForm">
+      <form action="https://formspree.io/f/xwkgqpvj" method="POST" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="consultant" id="formConsultant">
+        <input type="hidden" name="source" value="verifiedaiconsultants.com">
+        <input type="hidden" name="_subject" id="formSubject">
+        
+        <label>Your Name *</label>
+        <input type="text" name="name" required placeholder="Full name">
+        
+        <label>Your Email *</label>
+        <input type="email" name="email" required placeholder="your@email.com">
+        
+        <label>Company / Business</label>
+        <input type="text" name="company" placeholder="Your company name">
+        
+        <label>Project Type</label>
+        <select name="project_type">
+          <option value="">Select...</option>
+          <option>AIOS Implementation</option>
+          <option>AI Strategy & Consulting</option>
+          <option>Chatbot / Automation</option>
+          <option>Claude / AI Tool Setup</option>
+          <option>Discovery Audit</option>
+          <option>Other</option>
+        </select>
+        
+        <label>Estimated Budget</label>
+        <select name="budget">
+          <option value="">Select...</option>
+          <option>Under $5,000</option>
+          <option>$5,000 - $15,000</option>
+          <option>$15,000 - $50,000</option>
+          <option>$50,000+</option>
+          <option>Not sure yet</option>
+        </select>
+        
+        <label>Tell us about your project *</label>
+        <textarea name="message" required placeholder="What are you trying to accomplish? What problems are you solving?"></textarea>
+        
+        <button type="submit" class="modal-submit">Send Inquiry</button>
+        <div class="modal-note">WBG will review your inquiry and connect you with the right consultant. No spam, ever.</div>
+      </form>
+    </div>
+    
+    <div class="modal-success" id="modalSuccess">
+      <h4>Inquiry Received</h4>
+      <p>Thank you. We'll review your project and connect you with the right consultant within 24 hours. Check your email for confirmation.</p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+function openContact(consultantName) {
+  document.getElementById('modalConsultantName').textContent = 'Contact ' + consultantName;
+  document.getElementById('formConsultant').value = consultantName;
+  document.getElementById('formSubject').value = 'New inquiry for ' + consultantName + ' via VerifiedAIConsultants.com';
+  document.getElementById('contactModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('contactModal').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('modalSuccess').style.display = 'none';
+  document.getElementById('modalForm').style.display = 'block';
+}
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} })
+    .then(r => {
+      if(r.ok) {
+        document.getElementById('modalForm').style.display = 'none';
+        document.getElementById('modalSuccess').style.display = 'block';
+      }
+    })
+    .catch(() => form.submit());
+}
+</script>
+
 </body>
 </html>
